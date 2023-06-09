@@ -1,0 +1,80 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Link from "@components/ui/link.astro";
+
+const servicesCollection = [
+  {
+    name: "Bathroom Remodel",
+    title: "",
+    img: {
+      src: "/unsplash/b.jpg",
+      alt: "Image of bathroom remodel",
+    },
+    publishDate: "2022-11-08 15:39",
+    to: "/projects/bathrooms",
+  },
+  {
+    name: "Major Renovation - Multiple Rooms",
+    title: "",
+    img: {
+      src: "/unsplash/o.jpg",
+      alt: "Image of interior major renovation",
+    },
+    publishDate: "2022-11-07 15:39",
+    to: "/projects/kitchens",
+  },
+  {
+    name: "Kitchen Remodel",
+    title: "",
+    img: { src: "/unsplash/k.jpg", alt: "Image of kitchen remodel" },
+    publishDate: "2022-11-09 15:39",
+    to: "/projects/other",
+  },
+];
+---
+
+<div
+  class="flex flex-col gap-3 mx-auto max-w-4xl mt-16 text-center items-center">
+  <h2 class="font-bold text-3xl text-gray-800">What services we offer</h2>
+  <p class="text-lg leading-relaxed text-slate-500">
+    We're a multi-cultural team from around the world! We come from diverse
+    backgrounds, bringing different personalities, experiences and skills to the
+    job. This is what makes our team so special.
+  </p>
+  <a
+    class="text-lg leading-relaxed text-slate-500 border w-fit px-8 bg-slate-100 rounded"
+    href="/projects">View All Projects</a
+  >
+</div>
+<div class="grid md:grid-cols-3 gap-1 mx-auto mt-12 px-5">
+  <!-- <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12"> -->
+  {
+    servicesCollection.map((item) => (
+      <div class="group" style="position: relative; overflow: hidden">
+        <div class="transition group-hover:scale-105 group-hover:shadow-xl">
+          <a href={item.to}>
+            <div
+              class="mt-4 text-center"
+              style="position: absolute; top:50%; left: 50%; transform: translate(-50%,-50%); z-index: 10">
+              <h2 class="text-xl text-gray-800 text-bold">{item.name}</h2>
+            </div>
+            <div class="w-full aspect-square">
+              <Picture
+                src={item.img.src}
+                alt={item.img.alt}
+                sizes="(max-width: 800px) 100vw, 400px"
+                widths={[200, 400]}
+                aspectRatio="1:1"
+                background="#ffffff"
+                fit="cover"
+                position="center"
+                class="w-full rounded"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</div>

@@ -1,17 +1,26 @@
 ---
 import Link from "./ui/link.astro";
+import Contactform from "@components/contactform.astro";
 ---
 
-<div
-  class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
-  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
-    Build faster websites.
-  </h2>
-  <p class="text-slate-400 mt-4 text-lg md:text-xl">
-    Pull content from anywhere and serve it fast with Astro's next-gen island
-    architecture.
-  </p>
-  <div class="flex mt-5">
-    <Link href="#" style="inverted">Get Started</Link>
+<div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-32 px-5">
+  <div>
+    <h2 class="font-medium text-2xl text-gray-800">Contact Us</h2>
+    <p class="text-lg leading-relaxed text-slate-500 mt-3">
+      Want to work with us? We are here to help. Fill out the form, send us an
+      email, or call us.
+    </p>
+    <div class="mt-5">
+      <div class="flex items-center mt-2 space-x-2 text-gray-600">
+        <span>Address</span>
+      </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+        <a href="mailto:hello@astroshipstarter.com">Email</a>
+      </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+        <a href="tel:+1 (987) 4587 899">+1 Phone</a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <Contactform />
   </div>
 </div>
