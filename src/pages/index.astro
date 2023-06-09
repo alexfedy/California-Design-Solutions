@@ -3,19 +3,34 @@ import Container from "@components/container.astro";
 import Cta from "@components/cta.astro";
 import Features from "@components/features.astro";
 import Footer from "@components/footer.astro";
-import Hero from "@components/hero.astro";
+import Hero from "../components/Hero";
+import Services from "../components/Services";
 import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
-import Services from "@components/services.astro";
 import Testimonials from "@components/testimonials.astro";
+import Link from "@components/ui/link.astro";
 ---
 
 <Layout title="">
   <Container>
-    <Hero />
+    <Hero client:load>
+      <Link
+        href="/contact"
+        class="flex gap-1 items-center justify-center"
+        rel="noopener">
+        Schedule an Appointment
+      </Link>
+      <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="/projects"
+        class="flex gap-1 items-center justify-center">
+        See our Work
+      </Link>
+    </Hero>
     <Features />
-    <!-- <Logos /> -->
-    <Services />
+    <Services client:load />
     <Testimonials />
     <Cta />
   </Container>

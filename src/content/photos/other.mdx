@@ -6,99 +6,62 @@ image: { src: "/unsplash/o.jpg", alt: "Sink" }
 category: "Photos"
 ---
 
-import Button from "@components/ui/button.astro";
-import { Picture } from "@astrojs/image/components";
-import kitchen from "../../assets/images/placeholder.jpg";
-
-<div class="grid grid-cols-2 md:grid-cols-2 gap-4">
-  <div>
-    <Picture
-      src={kitchen}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      aspectRatio="4:3"
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-      class="h-auto max-w-full rounded-md"
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-      alt=""
-    />
-  </div>
-  <div>
-    <img
-      class="h-auto max-w-full rounded-lg"
-      src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-      alt=""
-    />
+<div class="my-8 mx-auto">
+  <div class="grid grid-cols-8 grid-rows-8 gap-4">
+    <div class="col-start-1 col-end-3 row-start-1 row-end-3">
+      <img
+        src="/unsplash/o.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 1"
+      />
+    </div>
+    <div class="col-start-3 col-end-5 row-start-1 row-end-3">
+      <img
+        src="/unsplash/b.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 2"
+      />
+    </div>
+    <div class="col-start-5 col-end-9 row-start-1 row-end-6">
+      <img
+        src="/unsplash/k.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 3"
+      />
+    </div>
+    <div class="col-start-1 col-end-5 row-start-3 row-end-6">
+      <img
+        src="/unsplash/b.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 4"
+      />
+    </div>
+    <div class="col-start-1 col-end-5 row-start-6 row-end-9">
+      <img
+        src="/unsplash/k.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 5"
+      />
+    </div>
+    <div class="col-start-5 col-end-9 row-start-6 row-end-9">
+      <img
+        src="/unsplash/o.jpg"
+        style="width: 100%;
+    height: 100%;
+    object-fit: cover;"
+        alt="Image 6"
+      />
+    </div>
   </div>
 </div>
 
