@@ -60,16 +60,14 @@ const servicesCollection = [
               <h2 class="text-xl text-gray-800 text-bold">{item.name}</h2>
             </div>
             <div class="w-full aspect-square">
-              <Picture
+              <img
                 src={item.img.src}
                 alt={item.img.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                widths={[200, 400]}
-                aspectRatio="1:1"
-                background="#ffffff"
-                fit="cover"
-                position="center"
                 class="w-full rounded"
+                style="width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      overflow: hidden;"
               />
             </div>
           </a>
