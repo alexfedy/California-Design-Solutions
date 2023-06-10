@@ -7,39 +7,48 @@ const features = [
     img: "/check.svg",
     size: "width: 35px; height: 35px",
     title: "100% Recommended",
-    description:
-      "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
+    description: "Highly rated for Quality, Value, and Customer Service",
+    link: false,
   },
   {
     img: "/star.svg",
     size: "width: 35px; height: 35px",
     title: "16 Years in Business",
+    link: false,
     description:
-      "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
+      "Proven Industry Workers: Leading the Way in Contracting Services for Over a Decade",
   },
   {
     img: "/homeadvisor.png",
     size: "width: 35px; height: 35px",
     title: "HomeAdvisor Screened and Approved",
-    description: "",
+    link: false,
+    description:
+      "California Design Solutions has passed the HomeAdvisor screening process",
   },
   {
     img: "/bzscore.png",
     size: "width: 35px; height: 35px",
     title: "112 BuildZoom Score",
-    description: "97th Percentile above other contractors in California",
+    link: false,
+    description:
+      "97th Percentile above other contractors in California. Their BuildZoom score of 112 ranks in the top 3% of 336,931 California licensed contractors",
   },
   {
     img: "/paper.svg",
     size: "width: 30px; height: 30px",
     title: "127 Permitted Projects",
-    description: "97th Percentile above other contractors in California",
+    link: false,
+    description:
+      "Building permit records show that California Design Solutions has worked on 127 permitted projects",
   },
   {
     img: "/verified.png",
     size: "width: 45x; height: 35px",
     title: "Verified License",
     description: "See our license info",
+    link: true,
+    to: "/about",
   },
 ];
 ---
@@ -58,10 +67,18 @@ const features = [
                 <img src={item.img} class="mr-2" style={item.size} />
                 <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
               </div>
-
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                {item.description}
-              </p>
+              {!item.link && (
+                <p class="text-slate-600 mt-2 leading-relaxed">
+                  {item.description}
+                </p>
+              )}
+              {item.link && (
+                <a
+                  class="text-slate-500 mt-2 leading-relaxed underline"
+                  href={item.to}>
+                  {item.description}
+                </a>
+              )}
             </div>
           </div>
         </div>

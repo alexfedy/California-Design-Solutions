@@ -18,36 +18,48 @@ const servicesCollection = [
     to: "/projects/bathrooms",
   },
   {
-    name: "Major Renovation - Multiple Rooms",
+    name: "Major Renovation",
     title: "",
     img: {
       src: "/unsplash/o.jpg",
       alt: "Image of interior major renovation",
     },
     publishDate: "2022-11-07 15:39",
-    to: "/projects/kitchens",
+    to: "/projects/other",
   },
   {
     name: "Kitchen Remodel",
     title: "",
     img: { src: "/unsplash/k.jpg", alt: "Image of kitchen remodel" },
     publishDate: "2022-11-09 15:39",
-    to: "/projects/other",
+    to: "/projects/kitchens",
   },
 ];
 
   return(
 <>
 <div
-  className="flex flex-col gap-3 mx-auto max-w-4xl mt-16 text-center items-center">
-  <h2 className="font-bold text-3xl text-gray-800">What services we offer</h2>
-  <p className="text-lg leading-relaxed text-slate-500">
-    We're a multi-cultural team from around the world! We come from diverse
-    backgrounds, bringing different personalities, experiences and skills to the
-    job. This is what makes our team so special.
-  </p>
+  className="mx-auto max-w-5xl mt-16 items-center justify-center">
+    <div className="mx-5 grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 className="mb-4 font-bold text-3xl text-gray-800">Experts in Additions & Remodeling</h2>
+        <p className="text-sm leading-relaxed text-slate-600">
+          <ul>
+            <li><span className="text-base font-bold text-gray-800">Additions:</span> <br/>Expand your living space with expertly crafted additions that seamlessly blend with your home's existing structure.</li>
+            <li><span className="text-base font-bold text-gray-800">Kitchen Remodels:</span>  <br/>Create a space tailored to your style and needs, with innovative designs and functional layouts.</li>
+            <li><span className="text-base font-bold text-gray-800">Bathroom Renovations:</span>  <br/>Transform your bathrooms into luxurious retreats with our attention to detail and premium finishes.</li>
+            <li><span className="text-base font-bold text-gray-800">Outdoor Living:</span> <br/> Enhance your outdoor spaces with stunning patios, decks, landscaping, and more.</li>
+            <li><span className="text-base font-bold text-gray-800">General Home Improvements:</span>  <br/>From flooring to roofing, painting to electrical work, our skilled team covers all aspects of home improvement.</li>
+          </ul>
+        </p>
+      </div>
+      <div className="hidden md:flex justify-center items-center">
+        <img src="/unsplash/o.jpg"/>
+      </div>
+    </div>
+  <div className="my-16 flex w-full items-center justify-center">
   <a className="text-lg leading-relaxed text-slate-500 border w-fit px-8 bg-slate-100 rounded"
-    href="/projects">View All Projects</a>
+    href="/projects">View All Projects</a></div>
 </div>
 <div className="grid md:grid-cols-3 gap-1 mx-auto mt-12 px-5">
   {
@@ -65,8 +77,8 @@ const servicesCollection = [
         <div className="transition group-hover:scale-105 group-hover:shadow-xl">
           <a href={item.to}>
             <div
-              className="mt-4 text-center absolute top-1/2 left-1/2 z-10"
-              style={{transform: 'translate(-50%,-50%)'}}>
+              className="mt-4 text-center absolute top-1/2 left-1/2 z-10 font-bold"
+              style={{transform: 'translate(-50%,-200%)'}}>
               <h2 className="text-xl text-gray-800 text-bold">{item.name}</h2>
             </div>
             <div className="w-full aspect-square">
