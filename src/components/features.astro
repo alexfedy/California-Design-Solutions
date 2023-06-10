@@ -1,18 +1,17 @@
 ---
 // @ts-ignore
 import Check from "/check.svg";
+import { Picture } from "@astrojs/image/components";
 
 const features = [
   {
     img: "/check.svg",
-    size: "width: 35px; height: 35px",
     title: "100% Recommended",
     description: "Highly rated for Quality, Value, and Customer Service",
     link: false,
   },
   {
     img: "/star.svg",
-    size: "width: 35px; height: 35px",
     title: "16 Years in Business",
     link: false,
     description:
@@ -20,15 +19,13 @@ const features = [
   },
   {
     img: "/homeadvisor.png",
-    size: "width: 35px; height: 35px",
     title: "HomeAdvisor Screened and Approved",
     link: false,
     description:
       "California Design Solutions has passed the HomeAdvisor screening process",
   },
   {
-    img: "/bzscore.png",
-    size: "width: 35px; height: 35px",
+    img: "/bzscore-compressed.jpeg",
     title: "112 BuildZoom Score",
     link: false,
     description:
@@ -36,15 +33,13 @@ const features = [
   },
   {
     img: "/paper.svg",
-    size: "width: 30px; height: 30px",
     title: "127 Permitted Projects",
     link: false,
     description:
       "Building permit records show that California Design Solutions has worked on 127 permitted projects",
   },
   {
-    img: "/verified.png",
-    size: "width: 45x; height: 35px",
+    img: "/verified-compressed.jpeg",
     title: "Verified License",
     description: "See our license info",
     link: true,
@@ -64,7 +59,15 @@ const features = [
           <div class="flex gap-4 items-start">
             <div>
               <div class="flex items-center">
-                <img src={item.img} class="mr-2" style={item.size} />
+                <Picture
+                  src={item.img}
+                  alt="Img"
+                  widths={[40, 60, 80]}
+                  sizes="(max-width: 40px) 20vw, 30px"
+                  formats={["avif", "jpeg", "png", "webp"]}
+                  aspectRatio="1:1"
+                  class="mr-2"
+                />
                 <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
               </div>
               {!item.link && (

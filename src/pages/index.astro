@@ -3,8 +3,8 @@ import Container from "@components/container.astro";
 import Cta from "@components/cta.astro";
 import Features from "@components/features.astro";
 import Footer from "@components/footer.astro";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
+import Hero from "@components/Hero";
+import Services from "@components/services.astro";
 import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
 import Testimonials from "@components/testimonials.astro";
@@ -30,7 +30,7 @@ import Link from "@components/ui/link.astro";
       </Link>
     </Hero>
     <Features />
-    <Services client:load />
+    <Services />
     <Testimonials />
     <Cta />
   </Container>
