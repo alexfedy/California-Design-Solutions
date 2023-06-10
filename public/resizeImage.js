@@ -2,12 +2,12 @@ import sharp from "sharp";
 
 async function resizeImage() {
   try {
-    await sharp("homeadvisor.png")
+    await sharp("paper.svg")
       .resize({
         width: 300,
         height: 300,
       })
-      .toFile("homeadvisor-compressed.png");
+      .toFile("paper-compressed.png");
   } catch (error) {
     console.log(error);
   }
