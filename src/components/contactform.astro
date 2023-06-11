@@ -10,7 +10,11 @@ import Button from "./ui/button.astro";
   id="form"
   class="needs-validation"
   novalidate>
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+  <input
+    type="hidden"
+    name="access_key"
+    value="0706beff-5562-4b96-b8c9-c01b7829c3e6"
+  />
   <!-- Create your free access key from https://web3forms.com/ -->
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
   <div class="mb-5">
@@ -184,6 +188,7 @@ form.addEventListener("submit", function (e) {
       form.classList.remove("was-validated");
       setTimeout(() => {
         result.style.display = "none";
+        document.getElementById("form").style.display = "none";
       }, 5000);
     });
 });
