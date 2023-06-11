@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://astroship.web3templates.com",
+  site: "https://cdsbuilder.com",
   integrations: [
     react(),
     tailwind(),

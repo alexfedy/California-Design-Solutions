@@ -2,12 +2,13 @@ import sharp from "sharp";
 
 async function resizeImage() {
   try {
-    await sharp("paper.svg")
+    await sharp("opengraph.jpg")
       .resize({
-        width: 300,
-        height: 300,
+        width: 1400,
+        height: 800,
       })
-      .toFile("paper-compressed.png");
+      .toFormat("jpeg", { mozjpeg: true })
+      .toFile("opengraph-compressed.jpeg");
   } catch (error) {
     console.log(error);
   }
