@@ -1,0 +1,41 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { projectList } from "../content/_projects";
+
+const slicedProjects = projectList.slice(0, 6);
+---
+
+<div class="m-8 md:m-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {
+            slicedProjects.map((item) => (
+                <div class="p-4 border rounded h-fit hover:-translate-y-1 transition">
+                    <a href={item.link}>
+                        <Picture
+                            src={item.img}
+                            alt={item.alt}
+                            widths={[200, 400, 600]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            formats={["avif", "jpeg", "png", "webp"]}
+                            aspectRatio="2:1"
+                            class="rounded w-full h-full object-cover overflow-hidden mb-2"
+                        />
+                        <h3 class="mt-4 text-md md:text-lg font-bold">
+                            {item.title}
+                        </h3>
+                        <div class="flex justify-between text-xs md:text-sm">
+                            <p>{item.location}</p>
+                            <p>{item.date}</p>
+                        </div>
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+    <div class="my-16 flex w-full items-center justify-center">
+        <a
+            class="text-base leading-relaxed text-slate-900 border w-fit px-8 py-2 bg-slate-100 rounded"
+            href="/projects">View All Projects</a
+        >
+    </div>
+</div>

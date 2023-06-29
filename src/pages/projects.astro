@@ -4,6 +4,7 @@ import { Picture } from "@astrojs/image/components";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import ProjectComponent from "@components/projectComponent.astro";
 
 const publishedBlogEntries = await getCollection("photos", ({ data }) => {
   return data;
@@ -14,46 +15,10 @@ const publishedBlogEntries = await getCollection("photos", ({ data }) => {
   <Container>
     <Sectionhead>
       <Fragment slot="title">Recent Projects</Fragment>
-      <Fragment slot="desc">
-        A collection of images from our most recent work.
-      </Fragment>
+      <Fragment slot="desc">A collection of our projects.</Fragment>
     </Sectionhead>
     <main class="mt-16 px-5">
-      <ul
-        class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-16 max-w-4xl mx-auto">
-        {
-          publishedBlogEntries.map((blogPostEntry, index) => (
-            <li>
-              <a href={`/projects/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-1 gap-5 md:gap-10 items-center hover:scale-105 transition shadow-sm p-4">
-                  <Picture
-                    src={blogPostEntry.data.image.src}
-                    alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    widths={[200, 400, 800]}
-                    aspectRatio="16:9"
-                    background="#ffffff"
-                    fit="cover"
-                    position="center"
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md"
-                  />
-                  <div>
-                    <span class="text-slate-400 uppercase tracking-wider text-sm font-medium">
-                      {blogPostEntry.data.category}
-                    </span>
-
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {blogPostEntry.data.title}
-                    </h2>
-                  </div>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <ProjectComponent />
     </main>
   </Container>
 </Layout>

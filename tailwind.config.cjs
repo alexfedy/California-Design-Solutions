@@ -5,8 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Merriweather", ...defaultTheme.fontFamily.sans],
-        // sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -3,8 +3,8 @@ import { Picture } from "@astrojs/image/components";
 
 const servicesCollection = [
     {
-        name: "Bathroom Remodel",
-        title: "",
+        name: "Designs",
+        description: "information",
         img: {
             src: "/unsplash/b.jpg",
             alt: "Image of bathroom remodel",
@@ -14,7 +14,7 @@ const servicesCollection = [
     },
     {
         name: "Major Renovation",
-        title: "",
+        description: "information",
         img: {
             src: "/unsplash/o.jpg",
             alt: "Image of interior major renovation",
@@ -23,8 +23,8 @@ const servicesCollection = [
         to: "/projects/other",
     },
     {
-        name: "Kitchen Remodel",
-        title: "",
+        name: "Project Management",
+        description: "information",
         img: { src: "/unsplash/k.jpg", alt: "Image of kitchen remodel" },
         publishDate: "2022-11-09 15:39",
         to: "/projects/kitchens",
@@ -33,13 +33,59 @@ const servicesCollection = [
 ---
 
 <>
-    <div class="mx-auto max-w-5xl mt-16 items-center justify-center">
+    <div class="my-16 flex w-full items-center justify-center">
+        <h2 class="mb-4 font-bold text-3xl text-gray-800">Our Services</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 mx-16 mt-12 px-5">
+        {
+            servicesCollection.map((item, i) => (
+                <div class="overflow-hidden border rounded">
+                    <div>
+                        <a href={item.to}>
+                            <div class="w-full aspect-square">
+                                <Picture
+                                    src={item.img.src}
+                                    alt={item.img.alt}
+                                    widths={[200, 400, 600]}
+                                    sizes="(max-width: 800px) 100vw, 800px"
+                                    formats={["avif", "jpeg", "png", "webp"]}
+                                    aspectRatio="1:1"
+                                    class="rounded w-full h-full object-cover overflow-hidden"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center font-bold p-4">
+                        <h2 class="text-xl text-gray-800 text-bold">
+                            {item.name}
+                        </h2>
+                        <h2 class="text-gray-600 text-md font-normal">
+                            {item.description}
+                        </h2>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+    <div class="mx-auto max-w-5xl mt-32 items-center justify-center">
         <div class="mx-5 grid md:grid-cols-2 gap-8">
             <div>
-                <h2 class="mb-4 font-bold text-3xl text-gray-800">
-                    Experts in Additions & Remodeling
+                <p class="uppercase leading-1 text-sm">
+                    California Design Solutions
+                </p>
+                <h2 class="mb-4 font-bold text-5xl text-gray-800 py-2">
+                    Over 40 years of service
                 </h2>
                 <p class="text-sm leading-relaxed text-slate-600">
+                    Boasting more than 16 years of expertise in the industry, we
+                    have refined our abilities to achieve extraordinary outcomes
+                    in Additions, Kitchen Remodels, and an extensive array of
+                    Home Improvement undertakings. Our unwavering dedication to
+                    superior craftsmanship, coupled with our unwavering focus on
+                    customer satisfaction, distinguishes us as the preferred
+                    option for fulfilling all your renovation requirements.
+                </p>
+                <!-- <p class="text-sm leading-relaxed text-slate-600">
                     <ul>
                         <li>
                             <span class="font-bold text-xl text-gray-800"
@@ -91,7 +137,7 @@ const servicesCollection = [
                             </p>
                         </li>
                     </ul>
-                </p>
+                </p> -->
             </div>
             <div class="hidden md:flex justify-center items-center">
                 <Picture
@@ -105,41 +151,5 @@ const servicesCollection = [
                 />
             </div>
         </div>
-        <div class="my-16 flex w-full items-center justify-center">
-            <a
-                class="text-base leading-relaxed text-slate-900 border w-fit px-8 py-2 bg-slate-100 rounded"
-                href="/projects">View All Projects</a
-            >
-        </div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-1 mx-auto mt-12 px-5">
-        {
-            servicesCollection.map((item, i) => (
-                <div class="group relative overflow-hidden">
-                    <div class="transition group-hover:scale-105 group-hover:shadow-xl">
-                        <a href={item.to}>
-                            <div
-                                class="mt-4 text-center absolute top-1/2 left-1/2 z-10 font-bold"
-                                style={{ transform: "translate(-50%,-200%)" }}>
-                                <h2 class="text-xl text-gray-800 text-bold">
-                                    {item.name}
-                                </h2>
-                            </div>
-                            <div class="w-full aspect-square">
-                                <Picture
-                                    src={item.img.src}
-                                    alt={item.img.alt}
-                                    widths={[200, 400, 600]}
-                                    sizes="(max-width: 800px) 100vw, 800px"
-                                    formats={["avif", "jpeg", "png", "webp"]}
-                                    aspectRatio="1:1"
-                                    class="rounded w-full h-full object-cover overflow-hidden"
-                                />
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            ))
-        }
     </div>
 </>
