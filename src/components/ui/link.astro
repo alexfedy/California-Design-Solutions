@@ -3,7 +3,7 @@ interface Props {
   href: string;
   size?: "md" | "lg";
   block?: boolean;
-  style?: "outline" | "primary" | "inverted" | "muted";
+  style?: "transparent" | "outline" | "primary" | "inverted" | "muted";
   class?: string;
   [x: string]: any;
 }
@@ -23,8 +23,10 @@ const sizes = {
 };
 
 const styles = {
+  transparent:
+    "bg-transparent border-2 border-white-800 text-white backdrop-blur hover:backdrop-sepia",
   outline:
-    "bg-transparent border-2 border-white-800 hover:bg-gray-400 hover:bg-opacity-50 text-white ",
+    "bg-transparent border-2 border-gray-400 text-gray-400 hover:backdrop-sepia",
   primary:
     "bg-zinc-950 text-white hover:bg-gray-800 border-2 border-transparent",
   inverted: "bg-white text-gray-800  border-2 border-transparent",

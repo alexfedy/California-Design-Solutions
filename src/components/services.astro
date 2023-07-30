@@ -2,154 +2,89 @@
 import { Picture } from "@astrojs/image/components";
 
 const servicesCollection = [
-    {
-        name: "Designs",
-        description: "information",
-        img: {
-            src: "/unsplash/b.jpg",
-            alt: "Image of bathroom remodel",
-        },
-        publishDate: "2022-11-08 15:39",
-        to: "/projects/bathrooms",
+  {
+    name: "Designs",
+    description: "information",
+    img: {
+      src: "/unsplash/b.jpg",
+      alt: "Image of bathroom remodel",
     },
-    {
-        name: "Major Renovation",
-        description: "information",
-        img: {
-            src: "/unsplash/o.jpg",
-            alt: "Image of interior major renovation",
-        },
-        publishDate: "2022-11-07 15:39",
-        to: "/projects/other",
+  },
+  {
+    name: "Major Renovation",
+    description: "information",
+    img: {
+      src: "/unsplash/o.jpg",
+      alt: "Image of interior major renovation",
     },
-    {
-        name: "Project Management",
-        description: "information",
-        img: { src: "/unsplash/k.jpg", alt: "Image of kitchen remodel" },
-        publishDate: "2022-11-09 15:39",
-        to: "/projects/kitchens",
-    },
+  },
+  {
+    name: "Project Management",
+    description: "information",
+    img: { src: "/unsplash/k.jpg", alt: "Image of kitchen remodel" },
+  },
 ];
 ---
 
 <>
-    <div class="my-16 flex w-full items-center justify-center">
-        <h2 class="mb-4 font-bold text-3xl text-gray-800">Our Services</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8 mx-16 mt-12 px-5">
-        {
-            servicesCollection.map((item, i) => (
-                <div class="overflow-hidden border rounded">
-                    <div>
-                        <a href={item.to}>
-                            <div class="w-full aspect-square">
-                                <Picture
-                                    src={item.img.src}
-                                    alt={item.img.alt}
-                                    widths={[200, 400, 600]}
-                                    sizes="(max-width: 800px) 100vw, 800px"
-                                    formats={["avif", "jpeg", "png", "webp"]}
-                                    aspectRatio="1:1"
-                                    class="rounded w-full h-full object-cover overflow-hidden"
-                                />
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mt-4 text-center font-bold p-4">
-                        <h2 class="text-xl text-gray-800 text-bold">
-                            {item.name}
-                        </h2>
-                        <h2 class="text-gray-600 text-md font-normal">
-                            {item.description}
-                        </h2>
-                    </div>
-                </div>
-            ))
-        }
-    </div>
-    <div class="mx-auto max-w-5xl mt-32 items-center justify-center">
-        <div class="mx-5 grid md:grid-cols-2 gap-8">
-            <div>
-                <p class="uppercase leading-1 text-sm">
-                    California Design Solutions
-                </p>
-                <h2 class="mb-4 font-bold text-5xl text-gray-800 py-2">
-                    Over 40 years of service
-                </h2>
-                <p class="text-sm leading-relaxed text-slate-600">
-                    Boasting more than 16 years of expertise in the industry, we
-                    have refined our abilities to achieve extraordinary outcomes
-                    in Additions, Kitchen Remodels, and an extensive array of
-                    Home Improvement undertakings. Our unwavering dedication to
-                    superior craftsmanship, coupled with our unwavering focus on
-                    customer satisfaction, distinguishes us as the preferred
-                    option for fulfilling all your renovation requirements.
-                </p>
-                <!-- <p class="text-sm leading-relaxed text-slate-600">
-                    <ul>
-                        <li>
-                            <span class="font-bold text-xl text-gray-800"
-                                >Additions:</span
-                            >
-                            <br /><p class="text-sm text-slate-700">
-                                Expand your living space with expertly crafted
-                                additions that seamlessly blend with your home's
-                                existing structure.
-                            </p>
-                        </li>
-                        <li>
-                            <span class="text-xl font-bold text-gray-800"
-                                >Kitchen Remodels:</span
-                            >
-                            <br /><p class="text-sm text-slate-700">
-                                Create a space tailored to your style and needs,
-                                with innovative designs and functional layouts.
-                            </p>
-                        </li>
-                        <li>
-                            <span class="text-xl font-bold text-gray-800"
-                                >Bathroom Renovations:</span
-                            >
-                            <br /><p class="text-sm text-slate-700">
-                                Transform your bathrooms into luxurious retreats
-                                with our attention to detail and premium
-                                finishes.
-                            </p>
-                        </li>
-                        <li>
-                            <span class="text-xl font-bold text-gray-800"
-                                >Outdoor Living:</span
-                            >
-                            <br />
-                            <p class="text-sm text-slate-700">
-                                Enhance your outdoor spaces with stunning
-                                patios, decks, landscaping, and more.
-                            </p>
-                        </li>
-                        <li>
-                            <span class="text-xl font-bold text-gray-800"
-                                >General Home Improvements:</span
-                            >
-                            <br /><p class="text-sm text-slate-700">
-                                From flooring to roofing, painting to electrical
-                                work, our skilled team covers all aspects of
-                                home improvement.
-                            </p>
-                        </li>
-                    </ul>
-                </p> -->
+  <div class="my-16 flex w-full items-center justify-center">
+    <h2 class="mb-4 font-bold text-3xl text-gray-800">Our Services</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8 mx-16 mt-12 px-5">
+    {
+      servicesCollection.map((item, i) => (
+        <div class="overflow-hidden border rounded">
+          <div>
+            <div class="w-full aspect-[16/9]">
+              <Picture
+                src={item.img.src}
+                alt={item.img.alt}
+                widths={[200, 400, 600]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                formats={["avif", "jpeg", "png", "webp"]}
+                aspectRatio="1:1"
+                class="rounded w-full h-full object-cover overflow-hidden"
+              />
             </div>
-            <div class="hidden md:flex justify-center items-center">
-                <Picture
-                    src="/unsplash/o.jpg"
-                    widths={[200, 400, 800]}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    formats={["avif", "jpeg", "png", "webp"]}
-                    alt="The Astro logo"
-                    aspectRatio="1:1"
-                    class="rounded"
-                />
-            </div>
+          </div>
+          <div class="mt-4 text-center font-bold p-4">
+            <h2 class="text-xl text-gray-800 text-bold">{item.name}</h2>
+            <h2 class="text-gray-600 text-md font-normal">
+              {item.description}
+            </h2>
+          </div>
         </div>
+      ))
+    }
+  </div>
+  <div class="mx-auto max-w-5xl mt-32 items-center justify-center">
+    <div class="mx-5 grid md:grid-cols-2 gap-8">
+      <div>
+        <p class="uppercase leading-1 text-sm">California Design Solutions</p>
+        <h2 class="mb-4 font-bold text-5xl text-gray-800 py-2">
+          Over 40 years of service
+        </h2>
+        <p class="text-sm leading-relaxed text-slate-600">
+          Boasting more than 16 years of expertise in the industry, we have
+          refined our abilities to achieve extraordinary outcomes in Additions,
+          Kitchen Remodels, and an extensive array of Home Improvement
+          undertakings. Our unwavering dedication to superior craftsmanship,
+          coupled with our unwavering focus on customer satisfaction,
+          distinguishes us as the preferred option for fulfilling all your
+          renovation requirements.
+        </p>
+      </div>
+      <div class="hidden md:flex justify-center items-center">
+        <Picture
+          src="/unsplash/o.jpg"
+          widths={[200, 400, 800]}
+          sizes="(max-width: 800px) 100vw, 800px"
+          formats={["avif", "jpeg", "png", "webp"]}
+          alt="The Astro logo"
+          aspectRatio="1:1"
+          class="rounded"
+        />
+      </div>
     </div>
+  </div>
 </>

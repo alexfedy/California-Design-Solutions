@@ -5,9 +5,9 @@ const Hero = (props) => {
   return (
     <>
       <main
-        className="text-center flex justify-center items-center mb-16 bg-[url('/kitchen-resized-compressed.jpeg')] bg-cover w-100 h-100"
+        className="text-center flex justify-center items-center mb-16 bg-[url('/home-design.jpg')] bg-fixed bg-cover bg-no-repeat w-100 h-100"
         style={{ height: "90vh" }}>
-        <div className="flex flex-col items-center justify-center border h-full w-full p-8 bg-black bg-opacity-40 rounded-md">
+        <div className="flex flex-col items-center justify-center border h-full w-full p-8 bg-black bg-opacity-50 rounded-md">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
