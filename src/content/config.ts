@@ -21,7 +21,6 @@ const blogCollection = defineCollection({
 const projectCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    description: z.string(),
     image: z.object({
       src: z.string(),
       alt: z.string(),
