@@ -32,7 +32,7 @@ export const ha_reviews = [
     stars: "5",
     date: "2/20/2019",
     name: "Vikki D.",
-    location: "#C0C0C0",
+    location: "Lancaster, PA",
     bgColor: "#DBD7D2",
     title: "Remodel or Renovate One or More Rooms",
     description:
