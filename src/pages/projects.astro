@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 // import { projectList } from "../content/_projects";
 
 // Filter blog entries with 'draft: false' & date before current date
@@ -31,18 +31,14 @@ const projectEntires = await getCollection("project", ({ data }) => {
               <li>
                 <a href={`/projects/${blogPostEntry.slug}`}>
                   <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                    <Picture
+                    <Image
                       src={blogPostEntry.data.image.src}
                       alt={blogPostEntry.data.image.alt}
+                      width={200}
+                      height={200}
                       sizes="(max-width: 800px) 100vw, 800px"
-                      widths={[200, 400, 800]}
-                      aspectRatio="16:9"
-                      background="#ffffff"
-                      fit="cover"
-                      position="center"
                       loading={index <= 2 ? "eager" : "lazy"}
-                      decoding={index <= 2 ? "sync" : "async"}
-                      class="w-full rounded-md"
+                      class="w-full rounded-md object-cover object-center"
                     />
                     <div>
                       <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
@@ -67,7 +63,7 @@ const projectEntires = await getCollection("project", ({ data }) => {
             projectList.map((item) => (
               <div class="p-4 border rounded h-fit hover:-translate-y-1 transition">
                 <a href={item.link}>
-                  <Picture
+                  <Image
                     src={item.img}
                     alt={item.alt}
                     widths={[200, 400, 600]}

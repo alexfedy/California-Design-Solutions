@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
@@ -35,7 +34,7 @@ import { hz_reviews } from "content/_hz_reviews";
             location={item.location}
             title={item.title}
             description={item.description}
-            bgColor = {item.bgColor}
+            bgColor={item.bgColor}
           />
         ))
       }
@@ -57,12 +56,11 @@ import { hz_reviews } from "content/_hz_reviews";
               date={item.date}
               name={item.name}
               description={item.description}
-              bgColor = {item.bgColor}
+              bgColor={item.bgColor}
             />
           </div>
         ))
       }
     </div>
-    
   </Container>
 </Layout>

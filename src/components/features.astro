@@ -1,7 +1,7 @@
 ---
 // @ts-ignore
 import Check from "/check.svg";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 const features = [
   {
@@ -58,13 +58,12 @@ const features = [
           <div class="flex gap-4 items-start">
             <div>
               <div class="flex items-center">
-                <Picture
+                <Image
                   src={item.img}
                   alt="Img"
-                  widths={[40, 60, 80]}
+                  width={40}
+                  height={40}
                   sizes="(max-width: 40px) 20vw, 30px"
-                  formats={["avif", "jpeg", "png", "webp"]}
-                  aspectRatio="1:1"
                   class="mr-2"
                 />
                 <h3 class="font-semibold text-lg">{item.title}</h3>{" "}

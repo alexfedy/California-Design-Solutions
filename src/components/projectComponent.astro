@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 const projectEntires = await getCollection("project", ({ data }) => {
@@ -13,56 +13,36 @@ let projectEntiresSliced = projectEntires.slice(0, 6);
 ---
 
 <div class="m-8 md:m-16">
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-4">
     {
       projectEntiresSliced.map((blogPostEntry) => (
-        <a href={`/projects/${blogPostEntry.slug}`}>
-          <div class="p-4 border rounded h-fit hover:-translate-y-1 transition">
-            <Picture
-              src={blogPostEntry.data.image.src}
-              alt={blogPostEntry.data.image.alt}
-              widths={[200, 400, 600]}
-              sizes="(max-width: 800px) 100vw, 800px"
-              formats={["avif", "jpeg", "png", "webp"]}
-              aspectRatio="2:1"
-              class="rounded w-full h-full object-cover overflow-hidden mb-2"
-            />
+        <a href={`/projects/${blogPostEntry.slug}`} class="**block** h-full">
+          {" "}
+          {/* <-- CRITICAL FIX HERE */}
+          <div class="p-4 border rounded h-full hover:-translate-y-1 transition flex flex-col">
+            {/* IMAGE CONTAINER FIX: Gives a consistent height */}
+            <div class="h-80 w-full rounded overflow-hidden mb-2">
+              <Image
+                src={blogPostEntry.data.image.src}
+                alt={blogPostEntry.data.image.alt}
+                width={400}
+                height={800}
+                class="h-full w-full object-cover"
+              />
+            </div>
+
             <h3 class="mt-4 text-md md:text-lg font-bold">
               {blogPostEntry.data.title}
             </h3>
-            <div class="flex justify-between text-xs md:text-sm">
+
+            {/* mt-auto pushes this content to the bottom of the available space */}
+            <div class="flex justify-between text-xs md:text-sm mt-auto">
               <p>{blogPostEntry.data.publishDate}</p>
             </div>
           </div>
         </a>
       ))
     }
-    <!-- {
-     
-        // slicedProjects.map((item) => (
-        //     <div class="p-4 border rounded h-fit hover:-translate-y-1 transition">
-        //         <a href={item.link}>
-        //             <Picture
-        //                 src={item.img}
-        //                 alt={item.alt}
-        //                 widths={[200, 400, 600]}
-        //                 sizes="(max-width: 800px) 100vw, 800px"
-        //                 formats={["avif", "jpeg", "png", "webp"]}
-        //                 aspectRatio="2:1"
-        //                 class="rounded w-full h-full object-cover overflow-hidden mb-2"
-        //             />
-        //             <h3 class="mt-4 text-md md:text-lg font-bold">
-        //                 {item.title}
-        //             </h3>
-        //             <div class="flex justify-between text-xs md:text-sm">
-        //                 <p>{item.location}</p>
-        //                 <p>{item.date}</p>
-        //             </div>
-        //         </a>
-        //     </div>
-        // ))
-      
-    } -->
   </div>
   <div class="my-16 flex w-full items-center justify-center">
     <a

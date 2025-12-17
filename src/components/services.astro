@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 const servicesCollection = [
   {
@@ -39,13 +39,12 @@ const servicesCollection = [
         <div class="overflow-hidden border rounded">
           <div>
             <div class="w-full aspect-[16/9]">
-              <Picture
+              <Image
                 src={item.img.src}
                 alt={item.img.alt}
-                widths={[200, 400, 600]}
+                width={400}
+                height={400}
                 sizes="(max-width: 800px) 100vw, 800px"
-                formats={["avif", "jpeg", "png", "webp"]}
-                aspectRatio="1:1"
                 class="rounded w-full h-full object-cover overflow-hidden"
               />
             </div>
@@ -78,13 +77,12 @@ const servicesCollection = [
         </p>
       </div>
       <div class="hidden md:flex justify-center items-center">
-        <Picture
+        <Image
           src="/unsplash/o.jpg"
-          widths={[200, 400, 800]}
+          width={400}
+          height={400}
           sizes="(max-width: 800px) 100vw, 800px"
-          formats={["avif", "jpeg", "png", "webp"]}
           alt="The Astro logo"
-          aspectRatio="1:1"
           class="rounded"
         />
       </div>
