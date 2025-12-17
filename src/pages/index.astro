@@ -10,10 +10,28 @@ import Layout from "@layouts/Layout.astro";
 import Testimonials from "@components/testimonials.astro";
 import Link from "@components/ui/link.astro";
 import ProjectComponent from "@components/projectComponent.astro";
+import BaseHead from "@layouts/BaseHead.astro";
+import Navbar from "@components/navbar/navbar.astro";
 ---
 
-<Layout title="">
-  <Container>
+
+<!doctype html>
+<html lang="en" class="antialiased break-words">
+    <head>
+      <BaseHead title=""/>
+      <!-- Google tag (gtag.js) -->
+      <script  type="text/partytown"  async src="https://www.googletagmanager.com/gtag/js?id=G-QZ7M5SN5FX"></script>
+      <script  type="text/partytown" >
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-QZ7M5SN5FX');
+      </script>
+    </head>
+    <body>
+       <Navbar />
+    <Container>
     <Hero client:load>
       <Link
         href="/contact"
@@ -37,10 +55,17 @@ import ProjectComponent from "@components/projectComponent.astro";
     <Testimonials />
     <Cta />
   </Container>
-</Layout>
-
-<style>
+    <Footer />
+    <style is:global>
   html {
     scroll-behavior: smooth;
   }
-</style>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+
+    </body>
+</html>
