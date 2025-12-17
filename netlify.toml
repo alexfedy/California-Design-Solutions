@@ -1,0 +1,4 @@
+[build]
+  # Use a compatible Node.js version for the build
+  # Node 18 is an LTS version and is >=14.15 <20
+  environment = { NODE_VERSION = "18" }
