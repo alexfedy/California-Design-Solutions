@@ -1,9 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import { Image } from "astro:assets";
+import BaseHead from "@layouts/BaseHead.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import Footer from "@components/footer.astro";
 // import { projectList } from "../content/_projects";
 
 // Filter blog entries with 'draft: false' & date before current date
@@ -12,53 +14,77 @@ const projectEntires = await getCollection("project", ({ data }) => {
 });
 
 // Sort content entries by publication date
-// projectEntires.sort(function (a, b) {
-//   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
-// });
+projectEntires.sort(function (a, b) {
+  return (
+    new Date(b.data.publishDate).valueOf() -
+    new Date(a.data.publishDate).valueOf()
+  );
+});
 ---
 
-<Layout title="Projects">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">Recent Projects</Fragment>
-      <Fragment slot="desc">A collection of our projects.</Fragment>
-    </Sectionhead>
-    <main class="mt-16 px-5">
-      <div class="m-8 md:m-16">
-        <ul class="grid gap-16 max-w-4xl mx-auto">
-          {
-            projectEntires.map((blogPostEntry, index) => (
-              <li>
-                <a href={`/projects/${blogPostEntry.slug}`}>
-                  <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                    <Image
-                      src={blogPostEntry.data.image.src}
-                      alt={blogPostEntry.data.image.alt}
-                      width={200}
-                      height={200}
-                      sizes="(max-width: 800px) 100vw, 800px"
-                      loading={index <= 2 ? "eager" : "lazy"}
-                      class="w-full rounded-md object-cover object-center"
-                    />
-                    <div>
-                      <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                        {blogPostEntry.data.title}
-                      </h2>
+<html lang="en" class="antialiased break-words">
+  <head>
+    <BaseHead title="Projects" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QZ7M5SN5FX"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-                      <div class="flex gap-2 mt-3">
-                        <span class="text-gray-400">• </span>
-                        <span class="text-gray-400">
-                          {blogPostEntry.data.publishDate}
-                        </span>
+      gtag("config", "G-QZ7M5SN5FX");
+    </script>
+  </head>
+  <body>
+    <Navbar />
+    <Container>
+      <Sectionhead>
+        <Fragment slot="title">Our Projects</Fragment>
+        <Fragment slot="desc">A showcase of our completed work.</Fragment>
+      </Sectionhead>
+      <main class="mt-16 px-5">
+        <div class="m-8 md:m-16">
+          <ul class="grid gap-16 max-w-4xl mx-auto">
+            {
+              projectEntires.map((blogPostEntry, index) => (
+                <li>
+                  <a href={`/projects/${blogPostEntry.slug}`}>
+                    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                      <div class="w-full h-64 md:h-80 rounded-md overflow-hidden">
+                        <Image
+                          src={blogPostEntry.data.image.src}
+                          alt={blogPostEntry.data.image.alt}
+                          width={200}
+                          height={200}
+                          sizes="(max-width: 800px) 100vw, 800px"
+                          loading={index <= 2 ? "eager" : "lazy"}
+                          class="w-full h-full rounded-md object-cover object-center"
+                        />
+                      </div>
+                      <div>
+                        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                          {blogPostEntry.data.title}
+                        </h2>
+
+                        <div class="flex gap-2 mt-3">
+                          <span class="text-gray-400">• </span>
+                          <span class="text-gray-400">
+                            {blogPostEntry.data.publishDate}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        <!-- <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <!-- <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           {
             projectList.map((item) => (
               <div class="p-4 border rounded h-fit hover:-translate-y-1 transition">
@@ -84,7 +110,19 @@ const projectEntires = await getCollection("project", ({ data }) => {
             ))
           }
         </div> -->
-      </div>
-    </main>
-  </Container>
-</Layout>
+        </div>
+      </main>
+    </Container>
+    <Footer />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

@@ -18,15 +18,15 @@ const Hero = (props) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl lg:text-4xl xl:text-5xl font-bold text-white tracking-tighter">
-            Sacramento Remodeling and Renovation Services
+            Transform Your Home with Expert Design & Renovation
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:text-xl sm:text-lg mt-4 text-white max-w-xl tracking-tight">
-            California Design Solutions offers kitchen, bathroom, counter, and
-            any other interior remodeling and renovations.
+            className="md:text-xl sm:text-lg mt-4 text-white max-w-2xl tracking-tight">
+            Over 16 years of trusted expertise in kitchen, bathroom, and home
+            remodel and renovation throughout Sacramento.
             <br />
           </motion.p>
           <motion.div

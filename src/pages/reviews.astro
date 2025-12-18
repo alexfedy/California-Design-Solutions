@@ -1,66 +1,97 @@
 ---
-import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-import Button from "@components/ui/button.astro";
-import Contactform from "@components/contactform.astro";
 import Review from "@components/review.astro";
 import { ha_reviews } from "content/_ha_reviews";
 import { hz_reviews } from "content/_hz_reviews";
+import BaseHead from "@layouts/BaseHead.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import Footer from "@components/footer.astro";
 ---
 
-<Layout title="Reviews">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">Reviews</Fragment>
-      <Fragment slot="desc"></Fragment>
-    </Sectionhead>
-
-    <div class="flex flex-col mx-auto max-w-4xl mt-8 px-5">
-      <span class="mb-8 text-slate-600"
-        >Reviews from <a
-          href="https://www.homeadvisor.com/rated.CaliforniaDesign.27068314.html"
-          target="_blank"
-          class="text-blue-700 underline"
-          style="color: #FF5532">HomeAdvisor</a
-        ></span
-      >
-      {
-        ha_reviews.map((item) => (
-          <Review
-            stars={item.stars}
-            date={item.date}
-            name={item.name}
-            location={item.location}
-            title={item.title}
-            description={item.description}
-            bgColor={item.bgColor}
-          />
-        ))
+<html lang="en" class="antialiased break-words">
+  <head>
+    <BaseHead title="Reviews" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QZ7M5SN5FX"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-    </div>
-    <div class="flex flex-col mx-auto max-w-4xl mt-16 px-5">
-      <span class="my-8 text-slate-600"
-        >Reviews from <a
-          href="https://www.houzz.com/professionals/kitchen-and-bath-designers/west-designs-full-service-k-b-designer-builder-pfvwus-pf~1799045938?"
-          target="_blank"
-          class="text-blue-700 underline"
-          style="color: #4DBC15">Houzz</a
+      gtag("js", new Date());
+
+      gtag("config", "G-QZ7M5SN5FX");
+    </script>
+  </head>
+  <body>
+    <Navbar />
+    <Container>
+      <Sectionhead>
+        <Fragment slot="title">Reviews</Fragment>
+        <Fragment slot="desc"></Fragment>
+      </Sectionhead>
+
+      <div class="flex flex-col mx-auto max-w-4xl mt-8 px-5">
+        <span class="mb-8 text-slate-600"
+          >Reviews from <a
+            href="https://www.homeadvisor.com/rated.CaliforniaDesign.27068314.html"
+            target="_blank"
+            class="text-blue-700 underline"
+            style="color: #FF5532">HomeAdvisor</a
+          ></span
         >
-      </span>
-      {
-        hz_reviews.map((item) => (
-          <div class="bg-gray-50">
+        {
+          ha_reviews.map((item) => (
             <Review
               stars={item.stars}
               date={item.date}
               name={item.name}
+              location={item.location}
+              title={item.title}
               description={item.description}
               bgColor={item.bgColor}
             />
-          </div>
-        ))
+          ))
+        }
+      </div>
+      <div class="flex flex-col mx-auto max-w-4xl mt-16 px-5">
+        <span class="my-8 text-slate-600"
+          >Reviews from <a
+            href="https://www.houzz.com/professionals/kitchen-and-bath-designers/west-designs-full-service-k-b-designer-builder-pfvwus-pf~1799045938?"
+            target="_blank"
+            class="text-blue-700 underline"
+            style="color: #4DBC15">Houzz</a
+          >
+        </span>
+        {
+          hz_reviews.map((item) => (
+            <div class="bg-gray-50">
+              <Review
+                stars={item.stars}
+                date={item.date}
+                name={item.name}
+                description={item.description}
+                bgColor={item.bgColor}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </Container>
+    <Footer />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
       }
-    </div>
-  </Container>
-</Layout>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

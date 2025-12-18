@@ -1,7 +1,5 @@
 ---
 import { SEO } from "astro-seo";
-import Footer from "@components/footer.astro";
-import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/open-sans";
 
 export interface Props {
@@ -11,7 +9,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph-compressed.jpeg",
+  "/opengraph.png",
   Astro.site
 ).toString();
 
@@ -19,7 +17,7 @@ const { title } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "California Design Solutions"
-  : "California Design Solutions - Home Improvement and Renovation";
+  : "California Design Solutions - Sacramento Home Improvement and Renovation";
 ---
 
 <meta charset="UTF-8" />
@@ -30,18 +28,18 @@ const makeTitle = title
 
 <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
 <SEO
-    title={makeTitle}
-    description="California Design Solutions is a Sacramento Home Improvement and Renovation Contractor"
-    canonical={canonicalURL}
-    openGraph={{
+  title={makeTitle}
+  description="California Design Solutions is a Sacramento Home Improvement and Renovation Contractor"
+  canonical={canonicalURL}
+  openGraph={{
     basic: {
-        url: canonicalURL,
-        type: "website",
-        title: `California Design Solutions`,
-        image: resolvedImageWithDomain,
+      url: canonicalURL,
+      type: "website",
+      title: `California Design Solutions`,
+      image: resolvedImageWithDomain,
     },
     image: {
-        alt: "California Design Solutions Homepage Screenshot",
+      alt: "California Design Solutions Homepage Screenshot",
     },
-    }}
+  }}
 />

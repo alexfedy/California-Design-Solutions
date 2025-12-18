@@ -5,8 +5,6 @@ import Features from "@components/features.astro";
 import Footer from "@components/footer.astro";
 import Hero from "@components/Hero";
 import Services from "@components/services.astro";
-import Logos from "@components/logos.astro";
-import Layout from "@layouts/Layout.astro";
 import Testimonials from "@components/testimonials.astro";
 import Link from "@components/ui/link.astro";
 import ProjectComponent from "@components/projectComponent.astro";
@@ -14,58 +12,61 @@ import BaseHead from "@layouts/BaseHead.astro";
 import Navbar from "@components/navbar/navbar.astro";
 ---
 
-
 <!doctype html>
 <html lang="en" class="antialiased break-words">
-    <head>
-      <BaseHead title=""/>
-      <!-- Google tag (gtag.js) -->
-      <script  type="text/partytown"  async src="https://www.googletagmanager.com/gtag/js?id=G-QZ7M5SN5FX"></script>
-      <script  type="text/partytown" >
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  <head>
+    <BaseHead title="" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QZ7M5SN5FX"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-QZ7M5SN5FX');
-      </script>
-    </head>
-    <body>
-       <Navbar />
+      gtag("config", "G-QZ7M5SN5FX");
+    </script>
+  </head>
+  <body>
+    <Navbar />
     <Container>
-    <Hero client:load>
-      <Link
-        href="/contact"
-        class="flex gap-1 items-center justify-center"
-        style="transparent"
-        rel="noopener">
-        Schedule an Appointment
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="/projects"
-        class="flex gap-1 items-center justify-center">
-        See our Work
-      </Link>
-    </Hero>
-    <Features />
-    <Services />
-    <ProjectComponent />
-    <Testimonials />
-    <Cta />
-  </Container>
+      <Hero client:load>
+        <Link
+          href="/contact"
+          class="flex gap-1 items-center justify-center"
+          style="muted"
+          rel="noopener">
+          Schedule an Appointment
+        </Link>
+        <Link
+          size="lg"
+          style="outline"
+          rel="noopener"
+          href="/projects"
+          class="flex gap-1 items-center justify-center">
+          See our Work
+        </Link>
+      </Hero>
+      <Features />
+      <Services />
+      <ProjectComponent />
+      <Testimonials />
+      <Cta />
+    </Container>
     <Footer />
     <style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
+      html {
+        scroll-behavior: smooth;
+      }
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }
     </style>
-
-    </body>
+  </body>
 </html>
