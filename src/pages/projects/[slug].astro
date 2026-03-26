@@ -47,11 +47,15 @@ const { Content } = await entry.render();
             {entry.data.title}
           </h1>
           <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
-            <span class="text-gray-400">•</span>
-            <span class="text-gray-400">
-              {entry.data.publishDate}
-            </span>
-            <span class="text-gray-400 hidden md:block">•</span>
+            {
+              entry.data.publishDate !== "" && (
+                <>
+                  <span class="text-gray-400">•</span>
+                  <span class="text-gray-400">{entry.data.publishDate}</span>
+                  <span class="text-gray-400 hidden md:block">•</span>
+                </>
+              )
+            }
           </div>
         </div>
 

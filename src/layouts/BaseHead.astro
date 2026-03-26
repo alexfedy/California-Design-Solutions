@@ -10,7 +10,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
   "/opengraph.png",
-  Astro.site
+  Astro.site,
 ).toString();
 
 const { title } = Astro.props;
